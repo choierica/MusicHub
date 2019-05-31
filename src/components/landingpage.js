@@ -6,9 +6,7 @@ class LandingPage extends Component {
     render() {
         return(
             <div><h1>Landing</h1>
-                <textarea placeholder="Enter your message" rows="4" cols="50" id="msg_area">
-                    hello
-                </textarea>
+
                 <Buttons/>
             </div>
 
