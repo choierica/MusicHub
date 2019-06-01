@@ -8,7 +8,7 @@ function App() {
   return (
       <div className="demo-big-content"  >
           <Layout >
-              <Header className="header-color" title={<Link style={{textDecoration: 'none', color: 'white'}} to="/">Homepage</Link>} scroll>
+              <Header className="header-color" title={<Link style={{textDecoration: 'none', color: 'white'}} to="/">Functionary</Link>} scroll>
                   <Navigation style={{background: 'url(http://www.getmdl.io/assets/demos/transparent.jpg) center / cover'}}>
                       <Link to="/aboutme"> About Me</Link>
                   </Navigation>
