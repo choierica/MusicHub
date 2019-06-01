@@ -1,12 +1,13 @@
 textarea {
     border-radius: 25px;
     border: 2px solid #85538f;
-    height: 150px;
+    height: 80px;
     width: 40%;
     vertical-align: middle;
     margin-top: 30px;
     font-size: 24px;
     text-align: center;
+    background-color: rgba(133, 83, 143, 0.04);
 }
 
 #style {
@@ -14,10 +15,6 @@ textarea {
 }
 body {margin:0;font-family:Arial}
 
-.topnav {
-    overflow: hidden;
-    background-color: #642e8f;
-}
 
 .topnav a {
     float: left;
@@ -44,27 +41,28 @@ body {margin:0;font-family:Arial}
 }
 
 #input {
-    background-image: url("../photos/banner.png");
+    background-image: url("../photos/jonathan-riley-118591-unsplash.jpg");
     background-size: cover;
-    min-height: 600px;
+    min-height: 700px;
     min-width: 350px;
     text-align: center;
 
 }
 
-.buttons {
+#buttons {
     border: 2px solid #85538f;
     height: 3em;
     font-size: 12px;
     background-color: #af80ae;
     color: #f2f2f2;
+    border-radius: 10%;
 }
 
 #post_messages {
-    background-color: #af80ae;
+    background-color: rgba(7, 2, 175, 0.31);
     font-size: 24px;
     font-family: "American Typewriter", serif;
-    color: #fffbf7;
+    color: #295eb2;
 
     animation-duration: 3s;
     animation-name: slidein;

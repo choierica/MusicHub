@@ -4,3 +4,10 @@ export const increment = amount => {
         payload: amount
     };
 };
+
+export const decrement = amount => {
+    return {
+        type: 'INCREMENT_COUNTER',
+        payload: amount
+    };
+};

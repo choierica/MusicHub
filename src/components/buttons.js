@@ -2,16 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {increment} from '../actions/landingpage';
 
+
 class Buttons extends React.Component {
     render() {
         return (<div>
-                <textarea placeholder="Enter your message" rows="4" cols="50" id="msg_area">
+                <textarea placeholder="Add to your Dictionary!" rows="4" cols="50" id="msg_area">
                 </textarea>
+
                 <div className="boxed" align="center" id="post_messages">
-                    Messages: {this.props.count}
+                    ADD TO YOUR DICTIONARY: {this.props.count}
                 </div>
-                <button onClick={() => this.props.increment(document.getElementById('msg_area').value)}>
-                    Click Me!
+                <button id= "buttons" onClick={() => this.props.increment(document.getElementById('msg_area').value)}>
+                    ADD
                 </button>
             </div>
         );

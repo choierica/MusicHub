@@ -6,10 +6,10 @@ import Main from './components/main';
 
 function App() {
   return (
-      <div className="demo-big-content">
-          <Layout>
+      <div className="demo-big-content"  >
+          <Layout >
               <Header className="header-color" title={<Link style={{textDecoration: 'none', color: 'white'}} to="/">Homepage</Link>} scroll>
-                  <Navigation>
+                  <Navigation style={{background: 'url(http://www.getmdl.io/assets/demos/transparent.jpg) center / cover'}}>
                       <Link to="/aboutme"> About Me</Link>
                   </Navigation>
               </Header>
