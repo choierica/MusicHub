@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../style/landingpage.css';
-import Buttons from './buttons';
+import Buttons from './Buttons';
 
 
 class LandingPage extends Component {
