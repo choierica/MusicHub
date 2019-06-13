@@ -22,8 +22,8 @@ class Buttons extends React.Component {
 }
 
 
-const mapStateToProps = (state) => { //name is by convention
-    return {count: state.count}; //now it will appear as props
+const mapStateToProps = (state) => { 
+    return {count: state.count}; 
 }
 
 

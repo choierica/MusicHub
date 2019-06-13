@@ -1,5 +1,16 @@
 import React, {Component} from 'react';
 
+const ListItem = ({ value }) => (
+    <li>{value}</li>
+  );
+  
+const List = ({ items }) => (
+    <ul>
+      {
+        items.map((item, i) => <ListItem key={i} value={item} />)
+      }
+    </ul>
+  );
 
 class QuestionPage extends Component {
     state = {
@@ -27,16 +38,11 @@ class QuestionPage extends Component {
         event.preventDefault();
         this.callBackendAPI()
             .then(res => {
-                const joined = this.state.array.concat(this.inputNode.value);
-                this.setState({array: joined})
-            }
+                    const joined = this.state.array.concat(this.inputNode.value);
+                    this.setState({array: joined})
+                }
             )
             .catch(err => console.log(err));
-
-        // console.log(event.target[0].value)
-        // console.log(event.target.elements.username.value)
-        // console.log(event.target.username.value)
-        // console.log(this.inputNode.value)
     }
 
 
@@ -53,7 +59,7 @@ class QuestionPage extends Component {
                     </label>
                     <button type="submit">Submit</button>
                 </form>
-                <button>{this.state.array}</button>
+                <List items={this.state.array}/>
             </div>
         );
 
