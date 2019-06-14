@@ -5,9 +5,9 @@ export const increment = amount => {
     };
 };
 
-export const decrement = amount => {
+export const setInitial = amount => {
     return {
-        type: 'INCREMENT_COUNTER',
+        type: 'SET_INITIAL',
         payload: amount
     };
 };

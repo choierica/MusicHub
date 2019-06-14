@@ -3,17 +3,18 @@ import React from 'react';
 import Popup from "reactjs-popup";
 import '../style/landingpage.css';
 
-let randomWords = require('random-words');
-const initialize = (<div>
-    <button id="buttons"> {randomWords()} </button>
-    <button id="buttons"> {randomWords()} </button>
-    <button id="buttons"> {randomWords()} </button>
-    <button id="buttons"> {randomWords()} </button>
-    <div>
-    </div>
-</div>);
-
+// let randomWords = require('random-words');
+let initialize = [];
+// const initialize = (<div>
+//     <button id="buttons"> {randomWords()} </button>
+//     <button id="buttons"> {randomWords()} </button>
+//     <button id="buttons"> {randomWords()} </button>
+//     <button id="buttons"> {randomWords()} </button>
+//     <div>
+//     </div>
+// </div>);
 const counterReducer = (count = initialize, action) => {
+
     if (action.type === 'INCREMENT_COUNTER') {
         return (
             <div>
@@ -24,6 +25,11 @@ const counterReducer = (count = initialize, action) => {
                     </a>
                 </Popup>
             </div>);
+    }
+    if (action.type === 'SET_INITIAL') {
+        count = action.payload;
+        return count;
+
     }
     return count;
 };

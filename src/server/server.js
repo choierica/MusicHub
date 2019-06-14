@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // create a GET route
 const list = ["item1", "item2", "item3"];
 
-app.get('/express_backend', (req, res) => {
+app.get('/questions', (req, res) => {
     res.send({express: list});
 });
 
@@ -23,3 +23,5 @@ app.post('/questions', (req, res) => {
     console.log(list);
     res.send({response: list});
 });
+
+app.delete('/questions/index');

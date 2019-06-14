@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import "../style/questionpage.css";
+import {connect} from 'react-redux';
+import {increment} from '../actions/landingpage';
+import {setInitial} from '../actions/landingpage';
+
 import {
   List,
   ListItem,
@@ -22,14 +26,21 @@ class QuestionPage extends Component {
     });
   }
 
+//   componentDidMount() {
+//     this.callBackendAPI()
+//       .then(res => this.setState({ data: res.express }))
+//       .catch(err => console.log(err));
+//   }
   componentDidMount() {
-    this.callBackendAPI()
-      .then(res => this.setState({ data: res.express }))
+    const parent = this;
+    parent.callBackendAPI()
+      .then(res => parent.props.setInitial(res.express))
       .catch(err => console.log(err));
+      console.log(parent.props.count);
   }
 
   callBackendAPI = async () => {
-    const response = await fetch("/express_backend");
+    const response = await fetch("/questions");
     const body = await response.json();
 
     if (response.status !== 200) {
@@ -46,13 +57,31 @@ class QuestionPage extends Component {
         this.setState({ array: joined });
       })
       .catch(err => console.log(err));
-    console.log(this.state.array.length);
   };
 
   render() {
     return (
       <div id="body">
-        <p>{this.state.data}</p>
+          {/* <p>{this.state.data}</p> */}
+          <List style={{width: '650px'}}>
+          {this.props.count.map((item, i) => {
+            return (
+              <ListItem
+                  key= {i}
+                  threeLine>
+                  <ListItemContent avatar="person" subtitle="Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle.">{item}</ListItemContent>
+                  <ListItemAction>
+                    <Icon
+                      name="star"
+                      onClick={() => {
+                        this.removeTodo(item, i);
+                      }}
+                    />
+                  </ListItemAction>
+              </ListItem>
+            );
+          })}
+          </List>
         <form onSubmit={this.handleSubmit} method="post" action="/questions">
           <label>
             <input
@@ -67,7 +96,8 @@ class QuestionPage extends Component {
         <List>
           {this.state.array.map((item, i) => {
             return (
-              <ListItem>
+              <ListItem
+                  key= {i}>
                   <ListItemContent avatar="person">{item}</ListItemContent>
                   <ListItemAction>
                     <Icon
@@ -86,4 +116,10 @@ class QuestionPage extends Component {
   }
 }
 
-export default QuestionPage;
+const mapStateToProps = (state) => { 
+    return {count: state.count}; 
+}
+
+
+export default connect(mapStateToProps, {increment, setInitial})(QuestionPage);
+// export default QuestionPage;
