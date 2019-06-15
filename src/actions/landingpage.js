@@ -11,3 +11,10 @@ export const setInitial = amount => {
         payload: amount
     };
 };
+
+export const addContent = amount => {
+    return {
+        type: 'ADD_CONTENT',
+        payload: amount
+    };
+};

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "../style/questionpage.css";
-import {connect} from 'react-redux';
-import {increment} from '../actions/landingpage';
-import {setInitial} from '../actions/landingpage';
+import { connect } from "react-redux";
+import { increment, setInitial, addContent } from "../actions/landingpage";
 
 import {
   List,
@@ -25,18 +24,12 @@ class QuestionPage extends Component {
       array: todos
     });
   }
-
-//   componentDidMount() {
-//     this.callBackendAPI()
-//       .then(res => this.setState({ data: res.express }))
-//       .catch(err => console.log(err));
-//   }
   componentDidMount() {
     const parent = this;
-    parent.callBackendAPI()
+    parent
+      .callBackendAPI()
       .then(res => parent.props.setInitial(res.express))
       .catch(err => console.log(err));
-      console.log(parent.props.count);
   }
 
   callBackendAPI = async () => {
@@ -49,40 +42,38 @@ class QuestionPage extends Component {
     return body;
   };
 
+  callPostAPI = async() => {
+    const input = {body: this.inputNode.value}; 
+    const response = await fetch("/post", {
+        method: 'POST',  
+        body: JSON.stringify(input),  
+        headers:{
+          'Content-Type': 'application/json'
+         }
+          });
+    const body = await response.json()
+    if (response.status !== 200) {
+        throw Error(body.message);
+      }
+    return body;
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    this.callBackendAPI()
+    const parent = this;
+    parent
+      .callPostAPI()
       .then(res => {
-        const joined = this.state.array.concat(this.inputNode.value);
-        this.setState({ array: joined });
-      })
+          parent.props.addContent(res.response)
+        }
+          )
       .catch(err => console.log(err));
   };
 
   render() {
     return (
       <div id="body">
-          {/* <p>{this.state.data}</p> */}
-          <List style={{width: '650px'}}>
-          {this.props.count.map((item, i) => {
-            return (
-              <ListItem
-                  key= {i}
-                  threeLine>
-                  <ListItemContent avatar="person" subtitle="Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle.">{item}</ListItemContent>
-                  <ListItemAction>
-                    <Icon
-                      name="star"
-                      onClick={() => {
-                        this.removeTodo(item, i);
-                      }}
-                    />
-                  </ListItemAction>
-              </ListItem>
-            );
-          })}
-          </List>
-        <form onSubmit={this.handleSubmit} method="post" action="/questions">
+        <form onSubmit={this.handleSubmit}>
           <label>
             <input
               placeholder="Post Questions for Me!"
@@ -93,33 +84,55 @@ class QuestionPage extends Component {
           </label>
           <button type="submit">Submit</button>
         </form>
-        <List>
-          {this.state.array.map((item, i) => {
+        <List style={{ width: "650px" }}>
+          {this.props.count.map((item, i) => {
             return (
-              <ListItem
-                  key= {i}>
-                  <ListItemContent avatar="person">{item}</ListItemContent>
-                  <ListItemAction>
-                    <Icon
-                      name="star"
-                      onClick={() => {
-                        this.removeTodo(item, i);
-                      }}
-                    />
-                  </ListItemAction>
+              <ListItem key={i} threeLine>
+                <ListItemContent
+                  avatar="person"
+                  subtitle="Bryan Cranston played the role of Walter in Breaking Bad. He is also known for playing Hal in Malcom in the Middle.">
+                  {item}
+                </ListItemContent>
+                <ListItemAction>
+                  <Icon
+                    name="star"
+                    onClick={() => {
+                      this.removeTodo(item, i);
+                    }}
+                  />
+                </ListItemAction>
               </ListItem>
             );
           })}
         </List>
+{/* 
+        <List style={{ width: "650px" }}>
+          {this.state.array.map((item, i) => {
+            return (
+              <ListItem key={i}>
+                <ListItemContent avatar="person">{item}</ListItemContent>
+                <ListItemAction>
+                  <Icon
+                    name="star"
+                    onClick={() => {
+                      this.removeTodo(item, i);
+                    }}
+                  />
+                </ListItemAction>
+              </ListItem>
+            );
+          })}
+        </List> */}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => { 
-    return {count: state.count}; 
-}
+const mapStateToProps = state => {
+  return { count: state.count };
+};
 
-
-export default connect(mapStateToProps, {increment, setInitial})(QuestionPage);
-// export default QuestionPage;
+export default connect(
+  mapStateToProps,
+  { increment, setInitial, addContent }
+)(QuestionPage);

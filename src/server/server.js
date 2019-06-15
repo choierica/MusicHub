@@ -11,17 +11,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // create a GET route
-const list = ["item1", "item2", "item3"];
+let list = ["item1", "item2", "item3"];
+
 
 app.get('/questions', (req, res) => {
     res.send({express: list});
 });
 
-app.post('/questions', (req, res) => {
-    const username = req.body;
-    list.push(username);
-    console.log(list);
-    res.send({response: list});
+app.post('/post', (req, res) => {
+    const username = req.body.body;
+    list = list.concat(username);
+    res.send({response: username});
 });
 
-app.delete('/questions/index');
+app.delete('/questions/index', (req, res) => {
+    res.send();
+});
