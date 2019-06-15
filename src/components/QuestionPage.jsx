@@ -17,13 +17,25 @@ class QuestionPage extends Component {
     array: []
   };
 
-  removeTodo(name, i) {
-    let todos = this.state.array.slice();
-    todos.splice(i, 1);
-    this.setState({
-      array: todos
-    });
+  removeTodo = async(name, i) => {
+    const response = await fetch("/questions/" + i, {
+     method: 'DELETE'
+          });
+    const body = await response.json();
+    if (response.status !== 200) {
+        throw Error(body.message);
+      }
+    this.props.setInitial(body.response);
+    return body;
+    // let todos = this.state.array.slice();
+    // todos.splice(i, 1);
+    // this.setState({
+    //   array: todos
+    // });
   }
+
+
+
   componentDidMount() {
     const parent = this;
     parent
@@ -35,7 +47,6 @@ class QuestionPage extends Component {
   callBackendAPI = async () => {
     const response = await fetch("/questions");
     const body = await response.json();
-
     if (response.status !== 200) {
       throw Error(body.message);
     }
@@ -57,6 +68,17 @@ class QuestionPage extends Component {
       }
     return body;
   };
+
+//   callDeleteAPI = async(i) => {
+//     const response = await fetch("/question/" + i, {
+//         method: 'DELETE'
+//           });
+//     const body = await response.json()
+//     if (response.status !== 200) {
+//         throw Error(body.message);
+//       }
+//     return body;
+//   };
 
   handleSubmit = event => {
     event.preventDefault();

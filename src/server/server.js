@@ -24,6 +24,9 @@ app.post('/post', (req, res) => {
     res.send({response: username});
 });
 
-app.delete('/questions/index', (req, res) => {
-    res.send();
+app.delete('/questions/:id', (req, res) => {
+    list.slice();
+    list.splice(req.params.id, 1);
+    // console.log(list);
+    res.send( {response: list });
 });
