@@ -1,13 +1,17 @@
 input {
     border-radius: 25px;
-    border: 2px solid #85538f;
+    border: 2px solid #295eb2;
     height: 80px;
-    width: 40%;
-    vertical-align: middle;
+    width: 50%;
     margin-top: 30px;
     font-size: 24px;
     text-align: center;
     background-color: rgba(133, 83, 143, 0.04);
+}
+
+#inner {
+
+    text-align: center;
 }
 
 #style {
@@ -16,52 +20,25 @@ input {
 body {margin:0;font-family:Arial}
 
 
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.active {
-    background-color: #af54ae;
-    color: white;
-}
-
-.topnav .icon {
-    display: none;
-}
-
-.topnav a:hover, .dropdown:hover .dropbtn {
-    background-color: #85538f;
-    color: white;
-}
-
-#questionBody {
-    background-image: url("../photos/New-York-City-Background.jpeg");
+#body {
+    background-image: url("../photos/jonathan-riley-118591-unsplash.jpg");
     background-size: cover;
     min-height: 700px;
     min-width: 350px;
-    text-align: center;
-
 }
 
 #buttons {
-    border: 2px solid #85538f;
+    border: 2px solid #295eb2;
     height: 3em;
     font-size: 12px;
-    background-color: #af80ae;
+    background-color: #8cdae3;
     color: #f2f2f2;
     border-radius: 10%;
+    margin-left: 10px;
 }
 
 #post_messages {
-    background-color: rgba(7, 2, 175, 0.31);
-    font-size: 24px;
-    font-family: "American Typewriter", serif;
+
     color: #295eb2;
 
     animation-duration: 3s;
@@ -87,4 +64,26 @@ body {margin:0;font-family:Arial}
 
 #fresh {
     alignment: left;
+}
+
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.button {
+    background-color: #008cba; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:disabled {
+    opacity: 0.5;
 }

@@ -3,6 +3,7 @@ import {Layout, Header, Navigation, Drawer, Content} from 'react-mdl';
 import {Link} from 'react-router-dom';
 import Main from './components/Main';
 
+
 class App extends Component {
 
     render() {
@@ -10,14 +11,14 @@ class App extends Component {
             <div className="demo-big-content">
                 <Layout>
                     <Header className="header-color"
-                            title={<Link style={{textDecoration: 'none', color: 'white'}} to="/">Functionary</Link>}
+                            title={<Link style={{textDecoration: 'none', color: 'white'}} to="/">MusicHub</Link>}
                             scroll>
                         <Navigation
                             style={{background: 'url(http://www.getmdl.io/assets/demos/transparent.jpg) center / cover'}}>
                             <Link to="/aboutme"> About Me</Link>
                         </Navigation>
                     </Header>
-                    <Drawer title="Title">
+                    <Drawer title="MusicHub">
                         <Navigation>
                             <Link to="/aboutme"> About Me</Link>
                         </Navigation>

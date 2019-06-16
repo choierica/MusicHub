@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // create a GET route
-let list = ["item1", "item2", "item3"];
+let list = ["https://www.youtube.com/watch?v=MBdVXkSdhwU", "item2", "item3"];
 
 
 app.get('/questions', (req, res) => {
@@ -27,6 +27,5 @@ app.post('/post', (req, res) => {
 app.delete('/questions/:id', (req, res) => {
     list.slice();
     list.splice(req.params.id, 1);
-    // console.log(list);
     res.send( {response: list });
 });
