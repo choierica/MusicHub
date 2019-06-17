@@ -11,9 +11,9 @@
     "react-dom": "^16.8.6",
     "react-mdl": "^1.11.0",
     "react-redux": "^7.0.3",
+    "react-responsive-music-player": "^0.4.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
-    "react-sound": "^1.2.0",
     "reactjs-popup": "^1.4.1",
     "redux": "^4.0.1"
   },

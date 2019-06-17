@@ -1,46 +1,61 @@
 input {
     border-radius: 25px;
-    border: 2px solid #295eb2;
+    border: 2px solid #af5fb2;
     height: 80px;
     width: 50%;
-    margin-top: 30px;
     font-size: 24px;
     text-align: center;
+    color: rgba(255, 255, 255, 0.71);
     background-color: rgba(133, 83, 143, 0.04);
+    font-family: sans-serif;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(254, 255, 249, 0.56);
+    opacity: 1; /* Firefox */
+    font-size: 20px;
+}
+
+
+#music {
+    margin: 0 auto;
+    padding-top: 30px;
 }
 
 #inner {
-
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #style {
     font-size: 0;
 }
-body {margin:0;font-family:Arial}
 
 
 #body {
-    background-image: url("../photos/jonathan-riley-118591-unsplash.jpg");
+    background-image: url("../photos/beautiful-cold-dawn-547115.jpg");
     background-size: cover;
     min-height: 700px;
     min-width: 350px;
+
 }
 
 #buttons {
-    border: 2px solid #295eb2;
+    border: 2px solid #af5fb2;
     height: 3em;
     font-size: 12px;
-    background-color: #8cdae3;
-    color: #f2f2f2;
+    background-color: rgba(140, 218, 227, 0);
+    color: rgba(242, 242, 242, 0.75);
     border-radius: 10%;
     margin-left: 10px;
 }
-
+#textbox {
+    text-align: center;
+    padding-top: 30px;
+}
 #post_messages {
-
     color: #295eb2;
-
     animation-duration: 3s;
     animation-name: slidein;
 }
