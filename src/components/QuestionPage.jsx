@@ -102,10 +102,10 @@ class QuestionPage extends Component {
                                     <ListItemContent
                                         avatar="person">
                                         Anonymous
-                                        <Popup trigger={<p>{item}</p>} position="top left" closeOnDocumentClick
+                                        <Popup trigger={<p>{item}</p>} position="top center" closeOnDocumentClick
                                                on="hover">
-                                            <a href={item}>
-                                                <div>{"Let"}</div>
+                                            <a href= {"https://www.youtube.com/results?search_query=" + item}>
+                                                <div>{item}</div>
                                             </a>
                                         </Popup>
                                     </ListItemContent>

@@ -5,7 +5,7 @@ import picture from '../photos/profilePic.png';
 class About extends Component {
     render() {
         return(
-            <div>
+            <div id="outer">
                 <div className="dhn-info-div0">
                     <img src= {picture}  alt=""/>
                     <p> Hello everyone! My name is Erica, and I'm a fourth year undergraduate student at the University of

@@ -4,14 +4,16 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
-// console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
 app.use(express.urlencoded());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // create a GET route
-let list = ["https://www.youtube.com/watch?v=MBdVXkSdhwU", "item2", "item3"];
+let list =
+    ["Fur Elise by Beethoven",
+        "Liebestraum by Liszt",
+        "Rondo in A minor K.511 by Mozart"];
 
 
 app.get('/questions', (req, res) => {

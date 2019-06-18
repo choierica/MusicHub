@@ -3,36 +3,10 @@
 }
 body {margin:0;font-family:Arial}
 
-.topnav {
-    overflow: hidden;
-    background-color: #642e8f;
+#outer {
+    background-image: url("../photos/jonathan-bean-37632-unsplash.jpg");
+    background-size: cover;
 }
-
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.active {
-    background-color: #af54ae;
-    color: white;
-}
-
-.topnav .icon {
-    display: none;
-}
-
-.topnav a:hover, .dropdown:hover .dropbtn {
-    background-color: #85538f;
-    color: #fafaff;
-}
-
-
 .dhn-info-div {
     margin-top: 20px;
     background-color: #f3ebbe;
@@ -61,7 +35,6 @@ body {margin:0;font-family:Arial}
 
 .dhn-info-div0 {
     margin-top: 20px;
-    background-color: #91f0f6;
     width: 100%;
     display: inline-block;
     border-radius: 5%;
