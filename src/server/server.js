@@ -10,12 +10,9 @@ const DATABASE_NAME = "music";
 
 app.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, (error, client) => {
-        if(error) {
-            throw error;
-        }
+        if(error) throw error;
         database = client.db(DATABASE_NAME);
         collection = database.collection("request");
-        console.log("Connected to `" + DATABASE_NAME + "`!");
     });
 });
 app.use(express.urlencoded());
@@ -23,10 +20,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 let database, collection;
 
-// let list =
-//     ["Fur Elise by Beethoven",
-//         "Liebestraum by Liszt",
-//         "Rondo in A minor K.511 by Mozart"];
 
 app.get("/questions", (request, response) => {
     collection.find({}).toArray((error, result) => {
@@ -39,9 +32,7 @@ app.get("/questions", (request, response) => {
 
 app.post("/post", (request, response) => {
     collection.insertOne(request.body, (error, result) => {
-        if(error) {
-            return result.status(500).send(error);
-        }
+        if(error) return result.status(500).send(error);
         response.send({response: result.ops[0]});
     });
 });
