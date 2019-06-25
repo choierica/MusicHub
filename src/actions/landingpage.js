@@ -5,9 +5,17 @@ export const setInitial = amount => {
     };
 };
 
-export const addContent = amount => {
+export const addContent = content => {
     return {
         type: 'ADD_CONTENT',
-        payload: amount
+        payload: content
+    };
+};
+
+export const deleteContent = content => {
+    console.log(content);
+    return {
+        type: 'DELETE_CONTENT',
+        payload: content
     };
 };

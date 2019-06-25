@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "../style/questionpage.css";
 import {connect} from "react-redux";
-import {setInitial, addContent} from "../actions/landingpage";
+import {setInitial, addContent, deleteContent} from "../actions/landingpage";
 import Popup from "reactjs-popup";
 import MusicPlayer from "react-responsive-music-player";
 
@@ -16,16 +16,11 @@ import {
 class QuestionPage extends Component {
 
     removeTodo = async (name, i) => {
-        const response = await fetch("/questions/" + i, {
+        await fetch("/questions/" + i, {
             method: 'DELETE'
         });
-        const body = await response.json();
-        if (response.status !== 200) {
-            throw Error(body.message);
-        }
-        console.log(body.response);
-        // this.props.setInitial(body.response);
-        return body;
+        console.log("got body");
+        this.props.deleteContent(i);
     };
 
 
@@ -150,5 +145,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {setInitial, addContent}
+    {setInitial, addContent, deleteContent}
 )(QuestionPage);

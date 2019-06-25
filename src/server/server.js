@@ -9,7 +9,7 @@ const CONNECTION_URL = "mongodb+srv://my-user:myuser@musicrequests-nrhiw.mongodb
 const DATABASE_NAME = "music";
 
 app.listen(port, () => {
-    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
+    MongoClient.connect(CONNECTION_URL, (error, client) => {
         if(error) {
             throw error;
         }
@@ -37,11 +37,6 @@ app.get("/questions", (request, response) => {
     });
 });
 
-// app.post('/post', (req, res) => {
-//     const username = req.body.body;
-//     list = list.concat(username);
-//     res.send({response: username});
-// });
 app.post("/post", (request, response) => {
     collection.insertOne(request.body, (error, result) => {
         if(error) {
@@ -52,14 +47,10 @@ app.post("/post", (request, response) => {
 });
 
 app.delete('/questions/:id', (req, res) => {
-    // list.slice();
-    // list.splice(req.params.id, 1);
-    // collection.deleteOne({"_id": ObjectId(req.params.id)});
     collection.deleteOne({"_id": ObjectId(req.params.id)}, (error, result) => {
         if(error) {
             return res.status(500).send(error);
         }
-        console.log(result);
+        res.send(result);
     });
-    // res.send({response: list});
 });

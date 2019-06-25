@@ -10,7 +10,10 @@ const counterReducer = (count = [], action) => {
     if (action.type === 'ADD_CONTENT') {
         count = count.concat(action.payload);
         return count;
-
+    }
+    if (action.type === 'DELETE_CONTENT') {
+        count = count.filter(item => (item._id !== action.payload))
+        return count;
     }
     return count;
 };
