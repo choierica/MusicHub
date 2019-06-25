@@ -23,7 +23,8 @@ class QuestionPage extends Component {
         if (response.status !== 200) {
             throw Error(body.message);
         }
-        this.props.setInitial(body.response);
+        console.log(body.response);
+        // this.props.setInitial(body.response);
         return body;
     };
 
@@ -39,9 +40,7 @@ class QuestionPage extends Component {
     callBackendAPI = async () => {
         const response = await fetch("/questions");
         const body = await response.json();
-        if (response.status !== 200) {
-            throw Error(body.message);
-        }
+        if (response.status !== 200) throw Error(body.message);
         return body;
     };
 
@@ -55,9 +54,7 @@ class QuestionPage extends Component {
             }
         });
         const body = await response.json();
-        if (response.status !== 200) {
-            throw Error(body.message);
-        }
+        if (response.status !== 200) throw Error(body.message);
         return body;
     };
 
@@ -66,10 +63,7 @@ class QuestionPage extends Component {
         const parent = this;
         parent
             .callPostAPI()
-            .then(res => {
-                    parent.props.addContent(res.response)
-                }
-            )
+            .then(res => parent.props.addContent(res.response))
             .catch(err => console.log(err));
     };
 
@@ -102,10 +96,10 @@ class QuestionPage extends Component {
                                     <ListItemContent
                                         avatar="person">
                                         Anonymous
-                                        <Popup trigger={<p>{item}</p>} position="top center" closeOnDocumentClick
+                                        <Popup trigger={<p>{item.body}</p>} position="top center" closeOnDocumentClick
                                                on="hover">
-                                            <a href= {"https://www.youtube.com/results?search_query=" + item}>
-                                                <div>{item}</div>
+                                            <a href={"https://www.youtube.com/results?search_query=" + item.body}>
+                                                <div>{item.body}</div>
                                             </a>
                                         </Popup>
                                     </ListItemContent>
@@ -113,7 +107,7 @@ class QuestionPage extends Component {
                                         <Icon
                                             name="delete_outline"
                                             onClick={() => {
-                                                this.removeTodo(item, i);
+                                                this.removeTodo(item, item._id);
                                             }}
                                         />
                                     </ListItemAction>
@@ -148,7 +142,7 @@ const playlist = [
         title: 'Fantaisie Impromptu ',
         artist: ['Frédéric Chopin']
     }
-]
+];
 
 const mapStateToProps = state => {
     return {count: state.count};

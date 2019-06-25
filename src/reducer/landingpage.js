@@ -9,7 +9,6 @@ const counterReducer = (count = [], action) => {
     }
     if (action.type === 'ADD_CONTENT') {
         count = count.concat(action.payload);
-        console.log(count);
         return count;
 
     }
