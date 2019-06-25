@@ -13,7 +13,6 @@ export const addContent = content => {
 };
 
 export const deleteContent = content => {
-    console.log(content);
     return {
         type: 'DELETE_CONTENT',
         payload: content
