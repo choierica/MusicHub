@@ -75,7 +75,7 @@ class FormDialog extends Component {
                                 Cancel
                             </Button>
                             <Button color="primary" type="submit">
-                                Subscribe
+                                Confirm
                             </Button>
                         </DialogActions>
                     </form>
