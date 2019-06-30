@@ -37,6 +37,15 @@ app.post("/post", (request, response) => {
     });
 });
 
+app.delete('/questions', (req, res) => {
+    collection.deleteMany({}, (error, result) => {
+        if(error) {
+            return res.status(500).send(error);
+        }
+        res.send(result);
+    });
+});
+
 app.delete('/questions/:id', (req, res) => {
     collection.deleteOne({"_id": ObjectId(req.params.id)}, (error, result) => {
         if(error) {

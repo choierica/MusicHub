@@ -12,7 +12,11 @@ const counterReducer = (count = [], action) => {
         return count;
     }
     if (action.type === 'DELETE_CONTENT') {
-        count = count.filter(item => (item._id !== action.payload))
+        count = count.filter(item => (item._id !== action.payload));
+        return count;
+    }
+    if (action.type === 'DELETE_ALL') {
+        count = [];
         return count;
     }
     return count;

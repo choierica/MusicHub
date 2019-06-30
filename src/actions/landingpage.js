@@ -18,3 +18,9 @@ export const deleteContent = content => {
         payload: content
     };
 };
+
+export const deleteAllContent = content => {
+    return {
+        type: 'DELETE_ALL'
+    };
+};

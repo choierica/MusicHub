@@ -10,6 +10,7 @@ import {
     Icon
 } from "react-mdl";
 import Popup from "reactjs-popup";
+import Modal from "./Modal";
 
 
 class ListArea extends Component {
@@ -25,6 +26,7 @@ class ListArea extends Component {
         return (
             <div>
                 <List style={{width: "auto"}} id="post_messages">
+                    <Modal/>
                     {this.props.count.map((item, i) => {
                         return (
                             <ListItem key={i} threeLine>
