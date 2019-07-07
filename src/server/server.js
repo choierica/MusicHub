@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 
@@ -9,7 +9,7 @@ const CONNECTION_URL = "mongodb+srv://my-user:myuser@musicrequests-nrhiw.mongodb
 const DATABASE_NAME = "music";
 
 app.listen(port, () => {
-    MongoClient.connect(CONNECTION_URL, (error, client) => {
+    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
         if(error) throw error;
         database = client.db(DATABASE_NAME);
         collection = database.collection("request");

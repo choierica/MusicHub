@@ -9,10 +9,9 @@ import ListArea from "../components/ListArea";
 class QuestionPage extends Component {
 
     componentDidMount() {
-        const parent = this;
-        parent
+        this
             .callBackendAPI()
-            .then(res => parent.props.setInitial(res.express))
+            .then(res => this.props.setInitial(res.express))
             .catch(err => console.log(err));
     }
 
