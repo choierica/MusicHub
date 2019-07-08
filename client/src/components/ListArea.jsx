@@ -9,7 +9,7 @@ import {
     ListItemAction,
     Icon
 } from "react-mdl";
-// import Popup from "reactjs-popup";
+import Popup from "reactjs-popup";
 import Modal from "./Modal";
 
 
@@ -33,12 +33,12 @@ class ListArea extends Component {
                                 <ListItemContent
                                     avatar="person">
                                     Anonymous
-                                    {/* <Popup trigger={<p>{item.body}</p>} position="top center" closeOnDocumentClick
+                                    <Popup trigger={<p>{item.body}</p>} position="top center" closeOnDocumentClick
                                            on="hover">
                                         <a href={"https://www.youtube.com/results?search_query=" + item.body}>
                                             <div>{item.body}</div>
                                         </a>
-                                    </Popup> */}
+                                    </Popup>
                                 </ListItemContent>
                                 <ListItemAction>
                                     <Icon
