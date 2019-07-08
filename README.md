@@ -1,3 +1,7 @@
+You can now view the deployed version here:
+https://musichub-request.herokuapp.com/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
