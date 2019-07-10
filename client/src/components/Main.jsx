@@ -5,8 +5,9 @@ import QuestionPage from './QuestionPage';
 
 const Main = () => (
     <Switch>
-        <Route render ={()=> < QuestionPage />} path="/" /> 
-        <Route render ={()=> < About />} path="/aboutme" /> 
+        <Route exact path="/" component={QuestionPage} />
+        {/* <Route render ={()=> < QuestionPage />} path="/" />  */}
+        <Route path="/aboutme" component={About} />
         <Route render ={()=> < QuestionPage />} path="/question" /> 
     </Switch>
 );
