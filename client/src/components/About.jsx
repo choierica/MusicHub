@@ -9,10 +9,8 @@ class About extends Component {
                 <div className="dhn-info-div0">
                     <img src= {picture}  alt=""/>
                     <p> Hello everyone! My name is Erica, and I'm a fourth year undergraduate student at the University of
-                        British Columbia. I am currently studying Computer Science, and I created Active as a platform for people to share their hobbies.
-                        Some of my own hobbies are: singing, playing piano and dancing.
-                        This summer, I'm working on a project called "fresh". If you're interested in looking into some of my past project,
-                        check out the link in the navigation bar!
+                        British Columbia. I am currently studying Computer Science, and I created MusicHub as a platform for people to share their favorite music..
+                        Feel free to listen to what I have available, and further share your own favorites!
                     </p>
                 </div>
             </div>
