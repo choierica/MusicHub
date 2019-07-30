@@ -4,6 +4,8 @@ https://musichub-request.herokuapp.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Personal WebPage: https://inquisitiv-e.github.io/
+
 ## Available Scripts
 
 In the project directory, you can run:
